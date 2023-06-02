@@ -1,0 +1,66 @@
+version: '3.9'
+services:
+  jupyter:
+    container_name: jupyter_ntb
+    image: jupyter_ntb_img
+    build:
+      dockerfile: jupyter.dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./src:/app/src
+      - ./sim_results:/app/sim_results
+  testing:
+    container_name: testing
+    image: testing_img
+    build:
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    working_dir: /app
+    command: "./tests.sh"
+  database:
+    container_name: database
+    image: postgres:15.2-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: card_games
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    networks:
+      - network
+  analysis:
+    container_name: analysis
+    image: analysis
+    build:
+      dockerfile: Dockerfile
+      target: base
+    depends_on:
+      - database
+    working_dir: /app/src/analysis
+    command:  "python multiple_runs.py"
+    networks:
+      - network
+    volumes:
+      - ./src:/app/src
+  console_pharaoh:
+    container_name: console_pharaoh
+    image: console_pharaoh_img
+    build:
+      dockerfile: Dockerfile
+      target: base
+    working_dir: /app/src
+    command: "python console_pharaoh.py"
+networks:
+  network:
+    driver: bridge
+
+#  TODO move stats and app to compose

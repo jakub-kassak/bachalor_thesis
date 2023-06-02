@@ -1,0 +1,38 @@
+players:
+  - name: RND1
+    type: random
+  - name: RND2
+    type: random
+  - name: RND3
+    type: random
+  - name: RND4
+    type: random
+  - name: RND5
+    type: random
+init_cards: 3
+suits:
+  - name: HEART
+    numeric: 1
+  - name: BELL
+    numeric: 2
+  - name: ACORN
+    numeric: 3
+  - name: LEAF
+    numeric: 4
+values:
+  - name: VII
+    numeric: 7
+  - name: VIII
+    numeric: 8
+  - name: IX
+    numeric: 9
+  - name: X
+    numeric: 10
+  - name: UNDER
+    numeric: 11
+  - name: OVER
+    numeric: 12
+  - name: KING
+    numeric: 13
+  - name: ACE
+    numeric: 14

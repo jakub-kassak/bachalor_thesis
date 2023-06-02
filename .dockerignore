@@ -1,0 +1,10 @@
+.dockerignore
+.gitignore
+.idea
+.mypy_cache
+documents
+README.md
+Dockerfile
+Makefile
+pharaoh_rules_eng.txt
+pharaoh_rules_svk.txt

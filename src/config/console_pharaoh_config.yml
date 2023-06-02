@@ -1,0 +1,59 @@
+players:
+  - name: Human
+    type: human
+  - name: AI1
+    type: ai1
+  - name: AI2
+    type: ai2
+  - name: MCTS
+    type: mcts
+    data:
+      iterations: 32
+      expl_const: 0.3
+      width: 10000000000
+      limit: 10000000000
+      heuristic:
+        draw_then_smallest_tuple
+init_cards: 5
+suits:
+  - name: HEART
+    symbol: 🧡
+    numeric: 1
+  - name: BELL
+    symbol: 🟡
+    numeric: 2
+  - name: ACORN
+    symbol: ♧
+    numeric: 3
+  - name: LEAF
+    symbol: 🍂
+    numeric: 4
+values:
+  - name: VII
+    symbol: "7"
+    numeric: 7
+  - name: VIII
+    symbol: "8"
+    numeric: 8
+  - name: IX
+    symbol: "9"
+    numeric: 9
+  - name: X
+    symbol: "10"
+    numeric: 10
+  - name: UNDER
+    symbol: ⛛
+    numeric: 11
+  - name: OVER
+    symbol: 🔺
+    numeric: 12
+  - name: KING
+    symbol: 👑
+    numeric: 13
+  - name: ACE
+    symbol: A
+    numeric: 14
+symbols:
+  __PREFIX__: ""
+  __SUFFIX__: ""
+  __DELIMITER__: ""
